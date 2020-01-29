@@ -14,12 +14,11 @@ public class ConferenceRoomTest {
 
     @Before
     public void before() {
-        ArrayList<Guest> occupants = new ArrayList<>();
         guest1 = new Guest("Greg");
         guest2 = new Guest("Alan");
         guest3 = new Guest("Erebus");
-        occupants.add(guest3);
-        conferenceRoom = new ConferenceRoom("Cadia", 2, occupants);
+        conferenceRoom = new ConferenceRoom("Cadia", 2);
+        conferenceRoom.addGuest(guest3);
     }
 
     @Test
@@ -36,6 +35,11 @@ public class ConferenceRoomTest {
     public void canAddGuests(){
         conferenceRoom.addGuest(guest1);
         assertEquals(2, conferenceRoom.countOccupants());
+    }
+    @Test
+    public void canRemoveGuest(){
+        conferenceRoom.removeGuest(guest3);
+        assertEquals(0, conferenceRoom.countOccupants());
     }
 
     @Test

@@ -6,10 +6,10 @@ public class ConferenceRoom {
     private int capacity;
     private ArrayList<Guest> occupants;
 
-    public ConferenceRoom(String name, int capacity, ArrayList<Guest> occupants){
+    public ConferenceRoom(String name, int capacity){
         this.name = name;
         this.capacity = capacity;
-        this.occupants = occupants;
+        this.occupants = new ArrayList<>();
     }
 
 
@@ -31,5 +31,13 @@ public class ConferenceRoom {
         } else {
             return false;
         }
+    }
+
+    public ArrayList<Guest> getOccupants(){
+        return this.occupants;
+    }
+
+    public void removeGuest(Guest guest) {
+        this.occupants.remove(guest);
     }
 }

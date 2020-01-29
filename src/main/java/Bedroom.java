@@ -7,11 +7,11 @@ public class Bedroom {
     private String type;
     private ArrayList<Guest> occupants;
 
-    public Bedroom(int roomNumber, int capacity, String type, ArrayList<Guest> occupants){
+    public Bedroom(int roomNumber, int capacity, String type){
         this.roomNumber = roomNumber;
         this.capacity = capacity;
         this.type = type;
-        this.occupants = occupants;
+        this.occupants = new ArrayList<>();
     }
 
 
@@ -27,6 +27,10 @@ public class Bedroom {
         return this.type;
     }
 
+    public ArrayList<Guest> getOccupants(){
+        return this.occupants;
+    }
+
     public int countOccupants() {
         return this.occupants.size();
     }
@@ -38,5 +42,9 @@ public class Bedroom {
         } else {
             return false;
         }
+    }
+
+    public void removeGuest(Guest guest) {
+        this.occupants.remove(guest);
     }
 }

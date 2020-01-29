@@ -14,12 +14,11 @@ public class BedroomTest {
 
     @Before
     public void before(){
-        ArrayList<Guest> occupants = new ArrayList<>();
         guest1 = new Guest("Greg");
         guest2 = new Guest("Alan");
         guest3 = new Guest("Erebus");
-        occupants.add(guest1);
-        bedroom = new Bedroom(1, 2, "Twin", occupants);
+        bedroom = new Bedroom(1, 2, "Twin");
+        bedroom.addGuest(guest1);
     }
 
     @Test
@@ -37,6 +36,11 @@ public class BedroomTest {
         assertEquals("Twin", bedroom.getType());
     }
 
+//    @Test
+//    public void canGetOccupants(){
+//        assertEquals(1, bedroom.getOccupants());
+//    }
+
     @Test
     public void canCountOccupants(){
         assertEquals(1, bedroom.countOccupants());
@@ -46,6 +50,12 @@ public class BedroomTest {
     public void canAddGuest(){
         bedroom.addGuest(guest2);
         assertEquals(2, bedroom.countOccupants());
+    }
+
+    @Test
+    public void canRemoveGuest(){
+        bedroom.removeGuest(guest1);
+        assertEquals(0, bedroom.countOccupants());
     }
 
     @Test
