@@ -73,7 +73,7 @@ public class HotelTest {
     @Test
     public void canBookRoom(){
         hotel.bookRoom(bedroom2, 3);
-        assertEquals();
+        assertEquals(1, hotel.countBookings());
     }
 
 }
